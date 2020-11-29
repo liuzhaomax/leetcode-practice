@@ -31,9 +31,15 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        for i in range(nums.__len__()):
+            for j in range(nums.__len__()):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        return
+
 # leetcode submit region end(Prohibit modification and deletion)
 
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.TwoSum())
+    print(solution.twoSum([2, 7, 11, 15], 9))

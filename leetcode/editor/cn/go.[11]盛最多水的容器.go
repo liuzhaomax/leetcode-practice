@@ -9,7 +9,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -84,7 +83,7 @@ func maxArea(height []int) int {
 
 //leetcode submit region end(Prohibit modification and deletion)
 
-func main() {
-	arr := []int{100, 0, 0, 0, 0, 100}
-	fmt.Println(maxArea(arr))
-}
+//func main() {
+//	arr := []int{100, 0, 0, 0, 0, 100}
+//	fmt.Println(maxArea(arr))
+//}

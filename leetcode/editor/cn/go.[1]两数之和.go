@@ -27,13 +27,12 @@ package main
 //leetcode submit region begin(Prohibit modification and deletion)
 func twoSum(nums []int, target int) []int {
 	var result []int
-LOOP:
 	for i := range nums {
 		for j := i + 1; j < len(nums); j++ {
 			if nums[j]+nums[i] == target {
 				result = append(result, i)
 				result = append(result, j)
-				break LOOP
+				break
 			}
 		}
 	}

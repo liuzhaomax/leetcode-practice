@@ -75,20 +75,21 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	nums := append(nums1, nums2...)
 	sort.Ints(nums)
 	length := len(nums)
-	var pos int
+	var pos float64
 	if length%2 == 0 {
-		pos = int(math.Ceil(float64(length / 2)))
+		pos = math.Floor(float64(length/2)) - 1
+		return float64(nums[int(pos)]+nums[int(pos)+1]) / 2
 	} else {
-		pos = length / 2
+		pos = float64(length / 2)
+		return float64(nums[int(pos)])
 	}
-	return float64(nums[pos])
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
 
 //func main() {
-//	nums1 := []int{1,3}
-//	nums2 := []int{2}
+//	nums1 := []int{1, 2}
+//	nums2 := []int{3, 4}
 //	result := findMedianSortedArrays(nums1, nums2)
 //	fmt.Println(result)
 //}

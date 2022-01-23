@@ -72,85 +72,102 @@ import "fmt"
 // Related Topics 递归 字符串 动态规划 👍 2669 👎 0
 
 //leetcode submit region begin(Prohibit modification and deletion)
-func isMatch(s string, p string) bool {
-	lens := len(s) + 1
-	lenp := len(p) + 1
-	dp := make([][]bool, lenp)
-	for i := range dp {
-		dp[i] = make([]bool, lens)
-	}
-	dp[lenp-1][lens-1] = true
-	star := false
-	flag := false
-	for i := lenp - 2; i >= 0; i-- {
-		if star == true {
-			for k := 0; k < lens; k++ {
-				flag = flag || dp[i][k]
-			}
-			if flag == false {
-				for k := 0; k < lens; k++ {
-					dp[i][k] = true
-				}
-			}
-			flag = false
-			star = false
-		}
-		for j := lens - 2; j >= 0; j-- {
-			switch string(p[i]) {
-			case "*":
-				star = true
-				if dp[i+1][j+1] == true {
-					dp[i][j] = true
-				}
-				if star == true && s[j] == p[i-1] && dp[i][j+1] == true {
-					dp[i-1][j] = true
-				}
-			case ".":
-				dp[i][j] = true
-			default:
-				if s[j] == p[i] && dp[i+1][j+1] == true {
-					dp[i][j] = true
-				}
-
-			}
-		}
-		if star == false {
-			flag = false
-			for k := 0; k < lens; k++ {
-				flag = flag || dp[i][k]
-			}
-			if flag == false {
-				continue
-			}
-		}
-	}
-	return dp[0][0]
-}
-
 //func isMatch(s string, p string) bool {
-//	lens := len(s)
-//	lenp := len(p)
-//	s = " " + s
-//	p = " " + p
-//	dp := make([][]bool, lenp+1)
+//	lens := len(s) + 1
+//	lenp := len(p) + 1
+//	dp := make([][]bool, lenp)
 //	for i := range dp {
-//		dp[i] = make([]bool, lens+1)
+//		dp[i] = make([]bool, lens)
 //	}
-//	dp[0][0] = true
-//	for i := 0; i <= lens; i++ {
-//		for j := 1; j <= lenp; j++ {
-//			if j+1 <= lenp && string(p[j+1]) == "*" {
-//				continue
+//	dp[lenp-1][lens-1] = true
+//	star := false //标记上一行是否是*
+//	flag := false //标记当前行有无true
+//	brk := false  //标记断开
+//	hasT := false //标记第0列是否有true
+//	for i := lenp - 2; i >= 0; i-- {
+//		if star == true && brk == false {
+//			flag = false
+//			for k := 0; k < lens; k++ {
+//				flag = flag || dp[i][k]
 //			}
-//			if string(p[j]) != "*" {
-//				dp[i][j] = i > 0 && j > 0 && dp[i-1][j-1] && (s[i] == p[j] || string(p[j]) == ".")
-//			} else {
-//				dp[i][j] = j >= 2 && dp[i][j-2] || (i > 0 && j > 0 && dp[i-1][j] && (s[i] == p[j-1] || string(p[j-1]) == "."))
+//			if flag == false {
+//				for k := 0; k < lens; k++ {
+//					dp[i][k] = dp[i+2][k]
+//				}
+//			}
+//			flag = false
+//			star = false
+//		}
+//		for j := lens - 2; j >= 0; j-- {
+//			switch string(p[i]) {
+//			case "*":
+//				star = true
+//				if dp[i+1][j+1] == true {
+//					dp[i][j] = true
+//					if s[j] == p[i-1] {
+//						dp[i-1][j] = true
+//					}
+//				}
+//				if j > 0 {
+//					if star == true && s[j] == p[i-1] && (dp[i][j+1] == true || p[i-1] == '.') && s[j-1] == p[i-1] {
+//						dp[i-1][j] = true
+//					}
+//				}
+//			case ".":
+//				if dp[i+1][j+1] == true {
+//					dp[i][j] = true
+//				}
+//			default:
+//				if s[j] == p[i] && dp[i+1][j+1] == true {
+//					dp[i][j] = true
+//				}
+//			}
+//		}
+//		if star == false {
+//			flag = false
+//			for k := 0; k < lens; k++ {
+//				flag = flag || dp[i][k]
+//			}
+//			if flag == false {
+//				brk = true
+//				continue
 //			}
 //		}
 //	}
-//	return dp[lens][lenp]
+//	if string(p[0]) != string(s[0]) && string(p[0]) != "." {
+//		for i := 1; i < lenp; i++ {
+//			hasT = hasT || dp[i][0]
+//		}
+//	} else {
+//		hasT = true
+//	}
+//	return dp[0][0] && hasT
 //}
+
+func isMatch(s string, p string) bool {
+	lens := len(s)
+	lenp := len(p)
+	s = " " + s
+	p = " " + p
+	dp := make([][]bool, lens+1)
+	for i := range dp {
+		dp[i] = make([]bool, lenp+1)
+	}
+	dp[0][0] = true
+	for i := 0; i <= lens; i++ {
+		for j := 1; j <= lenp; j++ {
+			if j+1 <= lenp && string(p[j+1]) == "*" {
+				continue
+			}
+			if string(p[j]) != "*" {
+				dp[i][j] = i > 0 && j > 0 && dp[i-1][j-1] && (s[i] == p[j] || string(p[j]) == ".")
+			} else {
+				dp[i][j] = j >= 2 && dp[i][j-2] || (i > 0 && j > 0 && dp[i-1][j] && (s[i] == p[j-1] || string(p[j-1]) == "."))
+			}
+		}
+	}
+	return dp[lens][lenp]
+}
 
 //leetcode submit region end(Prohibit modification and deletion)
 func main() {
@@ -160,6 +177,9 @@ func main() {
 	//var ggg = "aaa"
 	//var hhh = "ab*ac*a"
 	//fmt.Println(isMatch(ggg, hhh)) //true
+	//var ooo = "aa"
+	//var ppp = "a*"
+	//fmt.Println(isMatch(ooo, ppp)) //true
 	//var ccc = "miss"
 	//var ddd = "m"
 	//fmt.Println(isMatch(ccc, ddd)) //false
@@ -172,7 +192,23 @@ func main() {
 	//var kkk = "mississippi"
 	//var lll = "mis*is*ip*."
 	//fmt.Println(isMatch(kkk, lll)) //true
-	var mmm = "mississippi"
-	var nnn = "mis*is*p*."
-	fmt.Println(isMatch(mmm, nnn)) //false
+	//var mmm = "mississippi"
+	//var nnn = "mis*is*p*."
+	//fmt.Println(isMatch(mmm, nnn)) //false
+	//var qqq = "ab"
+	//var rrr = ".*"
+	//fmt.Println(isMatch(qqq, rrr)) //true
+	//var sss = "ab"
+	//var ttt = ".*c"
+	//fmt.Println(isMatch(sss, ttt)) //false
+	//var uuu = "aaa"
+	//var vvv = "ab*a"
+	//fmt.Println(isMatch(uuu, vvv)) //false
+	//var www = "aaa"
+	//var xxx = "ab*a*c*a"
+	//fmt.Println(isMatch(www, xxx)) //true
+	//fmt.Println("=================================")
+	var yyy = "aaba"
+	var zzz = "ab*a*c*a"
+	fmt.Println(isMatch(yyy, zzz)) //false
 }

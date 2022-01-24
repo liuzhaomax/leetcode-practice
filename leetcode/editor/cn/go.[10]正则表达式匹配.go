@@ -8,8 +8,6 @@
  ***************************************************************************/
 package main
 
-import "fmt"
-
 //给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
 //
 //
@@ -170,45 +168,45 @@ func isMatch(s string, p string) bool {
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
-func main() {
-	//var aaa = "aab"
-	//var bbb = "c*a*b"
-	//fmt.Println(isMatch(aaa, bbb)) //true
-	//var ggg = "aaa"
-	//var hhh = "ab*ac*a"
-	//fmt.Println(isMatch(ggg, hhh)) //true
-	//var ooo = "aa"
-	//var ppp = "a*"
-	//fmt.Println(isMatch(ooo, ppp)) //true
-	//var ccc = "miss"
-	//var ddd = "m"
-	//fmt.Println(isMatch(ccc, ddd)) //false
-	//var eee = "abcd"
-	//var fff = "d*"
-	//fmt.Println(isMatch(eee, fff)) //false
-	//var iii = "aa"
-	//var jjj = "a"
-	//fmt.Println(isMatch(iii, jjj)) //false
-	//var kkk = "mississippi"
-	//var lll = "mis*is*ip*."
-	//fmt.Println(isMatch(kkk, lll)) //true
-	//var mmm = "mississippi"
-	//var nnn = "mis*is*p*."
-	//fmt.Println(isMatch(mmm, nnn)) //false
-	//var qqq = "ab"
-	//var rrr = ".*"
-	//fmt.Println(isMatch(qqq, rrr)) //true
-	//var sss = "ab"
-	//var ttt = ".*c"
-	//fmt.Println(isMatch(sss, ttt)) //false
-	//var uuu = "aaa"
-	//var vvv = "ab*a"
-	//fmt.Println(isMatch(uuu, vvv)) //false
-	//var www = "aaa"
-	//var xxx = "ab*a*c*a"
-	//fmt.Println(isMatch(www, xxx)) //true
-	//fmt.Println("=================================")
-	var yyy = "aaba"
-	var zzz = "ab*a*c*a"
-	fmt.Println(isMatch(yyy, zzz)) //false
-}
+//func main() {
+//	//var aaa = "aab"
+//	//var bbb = "c*a*b"
+//	//fmt.Println(isMatch(aaa, bbb)) //true
+//	//var ggg = "aaa"
+//	//var hhh = "ab*ac*a"
+//	//fmt.Println(isMatch(ggg, hhh)) //true
+//	//var ooo = "aa"
+//	//var ppp = "a*"
+//	//fmt.Println(isMatch(ooo, ppp)) //true
+//	//var ccc = "miss"
+//	//var ddd = "m"
+//	//fmt.Println(isMatch(ccc, ddd)) //false
+//	//var eee = "abcd"
+//	//var fff = "d*"
+//	//fmt.Println(isMatch(eee, fff)) //false
+//	//var iii = "aa"
+//	//var jjj = "a"
+//	//fmt.Println(isMatch(iii, jjj)) //false
+//	//var kkk = "mississippi"
+//	//var lll = "mis*is*ip*."
+//	//fmt.Println(isMatch(kkk, lll)) //true
+//	//var mmm = "mississippi"
+//	//var nnn = "mis*is*p*."
+//	//fmt.Println(isMatch(mmm, nnn)) //false
+//	//var qqq = "ab"
+//	//var rrr = ".*"
+//	//fmt.Println(isMatch(qqq, rrr)) //true
+//	//var sss = "ab"
+//	//var ttt = ".*c"
+//	//fmt.Println(isMatch(sss, ttt)) //false
+//	//var uuu = "aaa"
+//	//var vvv = "ab*a"
+//	//fmt.Println(isMatch(uuu, vvv)) //false
+//	//var www = "aaa"
+//	//var xxx = "ab*a*c*a"
+//	//fmt.Println(isMatch(www, xxx)) //true
+//	//fmt.Println("=================================")
+//	var yyy = "aaba"
+//	var zzz = "ab*a*c*a"
+//	fmt.Println(isMatch(yyy, zzz)) //false
+//}

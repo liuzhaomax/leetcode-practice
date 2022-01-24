@@ -9,7 +9,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 	"strconv"
 )
@@ -95,9 +94,9 @@ func letterCombinations(digits string) []string {
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
-func main() {
-	a := "7"
-	fmt.Println(letterCombinations(a))
-	//d := "23"
-	//fmt.Println(letterCombinations(d))
-}
+//func main() {
+//	a := "7"
+//	fmt.Println(letterCombinations(a))
+//	//d := "23"
+//	//fmt.Println(letterCombinations(d))
+//}

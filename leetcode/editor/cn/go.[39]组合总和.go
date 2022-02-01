@@ -8,8 +8,6 @@
  ***************************************************************************/
 package main
 
-import "fmt"
-
 //给你一个 无重复元素 的整数数组 candidates 和一个目标整数 target ，找出 candidates 中可以使数字和为目标数 target 的
 // 所有 不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。
 //
@@ -83,8 +81,8 @@ func combinationSumSearch(res *[][]int, cur []int, candidates []int, target int,
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
-func main() {
-	candidates := []int{7, 3, 9, 6}
-	target := 6
-	fmt.Println(combinationSum(candidates, target))
-}
+//func main() {
+//	candidates := []int{7, 3, 9, 6}
+//	target := 6
+//	fmt.Println(combinationSum(candidates, target))
+//}

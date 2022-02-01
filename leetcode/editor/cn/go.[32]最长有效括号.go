@@ -65,12 +65,12 @@ func longestValidParentheses(s string) int {
 	return res
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
+//func max(x, y int) int {
+//	if x > y {
+//		return x
+//	}
+//	return y
+//}
 
 //leetcode submit region end(Prohibit modification and deletion)
 //func main() {

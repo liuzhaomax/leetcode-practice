@@ -190,9 +190,9 @@ func isMatch(s string, p string) bool {
 //	//var kkk = "mississippi"
 //	//var lll = "mis*is*ip*."
 //	//fmt.Println(isMatch(kkk, lll)) //true
-//	//var mmm = "mississippi"
-//	//var nnn = "mis*is*p*."
-//	//fmt.Println(isMatch(mmm, nnn)) //false
+//	var mmm = "mississippi"
+//	var nnn = "mis*is*p*."
+//	fmt.Println(isMatch(mmm, nnn)) //false
 //	//var qqq = "ab"
 //	//var rrr = ".*"
 //	//fmt.Println(isMatch(qqq, rrr)) //true
@@ -206,7 +206,7 @@ func isMatch(s string, p string) bool {
 //	//var xxx = "ab*a*c*a"
 //	//fmt.Println(isMatch(www, xxx)) //true
 //	//fmt.Println("=================================")
-//	var yyy = "aaba"
-//	var zzz = "ab*a*c*a"
-//	fmt.Println(isMatch(yyy, zzz)) //false
+//	//var yyy = "aaba"
+//	//var zzz = "ab*a*c*a"
+//	//fmt.Println(isMatch(yyy, zzz)) //false
 //}

@@ -8,8 +8,6 @@
  ***************************************************************************/
 package main
 
-import "fmt"
-
 //给定一个二进制数组 nums , 找到含有相同数量的 0 和 1 的最长连续子数组，并返回该子数组的长度。
 //
 //
@@ -92,7 +90,7 @@ func findMaxLength(nums []int) int {
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
-func main() {
-	arr := []int{1, 1, 1, 0, 1, 0}
-	fmt.Println(findMaxLength(arr))
-}
+//func main() {
+//	arr := []int{1, 1, 1, 0, 1, 0}
+//	fmt.Println(findMaxLength(arr))
+//}

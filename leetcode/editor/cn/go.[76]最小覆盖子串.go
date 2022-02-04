@@ -74,7 +74,6 @@ func minWindow(s string, t string) string {
 		resultLeft, resultRight int = 0, 0               // result window
 		resultLen               int = 100000
 	)
-
 	// build maps
 	for i := range t {
 		// window - avoid panic
@@ -88,20 +87,17 @@ func minWindow(s string, t string) string {
 	for i := range s {
 		// expand the window
 		right = i
-
 		// check if the current character is needed to be considered
 		_, ok := countT[s[i]]
 		if !ok {
 			continue
 		}
-
 		// increase the window count map
 		window[s[i]] += 1
 		// check requirements
 		if window[s[i]] == countT[s[i]] {
 			have++
 		}
-
 		// the current window is having all of the characters in t
 		// try to shrink the window by removing the leftmost character
 		for have == need {
@@ -110,17 +106,14 @@ func minWindow(s string, t string) string {
 				resultRight = right
 				resultLen = (right - left + 1)
 			}
-
 			// remove a character from the window
 			_, ok := countT[s[left]]
 			if !ok { // not worth to consider
 				left += 1 // shrink the window
 				continue
 			}
-
 			// decrease the window count
 			window[s[left]] -= 1
-
 			// update the number of matching requirements
 			if window[s[left]] < countT[s[left]] {
 				have -= 1

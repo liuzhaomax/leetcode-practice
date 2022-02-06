@@ -43,7 +43,7 @@ package main
 // Related Topics 数组 动态规划 👍 1864 👎 0
 
 //leetcode submit region begin(Prohibit modification and deletion)
-func rob(nums []int) int {
+func rob1(nums []int) int {
 	if len(nums) == 0 {
 		return 0
 	}

@@ -27,6 +27,25 @@ package main
 // Related Topics 数组 动态规划 👍 1476 👎 0
 
 //leetcode submit region begin(Prohibit modification and deletion)
+//func maxProduct(nums []int) int {
+//	if len(nums) == 0 {
+//		return 0
+//	}
+//	if len(nums) == 1 {
+//		return nums[0]
+//	}
+//	dp := make([]int, len(nums))
+//	dp[0] = nums[0]
+//	dpMin := make([]int, len(nums))
+//	dpMin[0] = nums[0]
+//	max := nums[0]
+//	for i := 1; i < len(nums); i++ {
+//		dp[i] = maxProductMax(nums[i], dp[i-1]*nums[i], dpMin[i-1]*nums[i])
+//		dpMin[i] = maxProductMin(nums[i], dp[i-1]*nums[i], dpMin[i-1]*nums[i])
+//		max = maxProductMax2(max, dp[i])
+//	}
+//	return max
+//}
 func maxProduct(nums []int) int {
 	if len(nums) == 0 {
 		return 0
@@ -34,21 +53,26 @@ func maxProduct(nums []int) int {
 	if len(nums) == 1 {
 		return nums[0]
 	}
-	dp := make([]int, len(nums))
-	dp[0] = nums[0]
-	dpMin := make([]int, len(nums))
-	dpMin[0] = nums[0]
-	max := nums[0]
+	localMax := nums[0]
+	localMin := nums[0]
+	globalMax := nums[0]
 	for i := 1; i < len(nums); i++ {
-		dp[i] = maxProductMax(nums[i], dp[i-1]*nums[i], dpMin[i-1]*nums[i])
-		dpMin[i] = maxProductMin(nums[i], dp[i-1]*nums[i], dpMin[i-1]*nums[i])
-		max = maxProductMax2(max, dp[i])
+		localMin, localMax = maxProductMin2(localMin*nums[i], localMax*nums[i]), maxProductMax2(localMin*nums[i], localMax*nums[i])
+		localMin, localMax = maxProductMin2(localMin, nums[i]), maxProductMax2(localMax, nums[i])
+		globalMax = maxProductMax2(globalMax, localMax)
 	}
-	return max
+	return globalMax
 }
 
 func maxProductMax2(a, b int) int {
 	if a > b {
+		return a
+	}
+	return b
+}
+
+func maxProductMin2(a, b int) int {
+	if a < b {
 		return a
 	}
 	return b
@@ -76,6 +100,6 @@ func maxProductMin(a, b, c int) int {
 
 //leetcode submit region end(Prohibit modification and deletion)
 //func main() {
-//	nums := []int{-1, -1, -2, -2}
+//	nums := []int{-1, -2, -9, -6}
 //	fmt.Println(maxProduct(nums))
 //}

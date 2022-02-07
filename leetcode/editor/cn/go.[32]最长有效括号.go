@@ -60,17 +60,17 @@ func longestValidParentheses(s string) int {
 				dp[i] += dp[i-dp[i-1]-2]
 			}
 		}
-		res = max(res, dp[i])
+		res = longestValidParenthesesMax(res, dp[i])
 	}
 	return res
 }
 
-//func max(x, y int) int {
-//	if x > y {
-//		return x
-//	}
-//	return y
-//}
+func longestValidParenthesesMax(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
 
 //leetcode submit region end(Prohibit modification and deletion)
 //func main() {

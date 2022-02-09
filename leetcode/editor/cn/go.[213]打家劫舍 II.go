@@ -90,7 +90,6 @@ func robMax2(a, b int) int {
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
-
 //func main() {
 //	nums := []int{1, 2, 3, 1}
 //	fmt.Println(rob(nums))

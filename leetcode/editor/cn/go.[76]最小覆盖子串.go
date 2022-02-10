@@ -8,10 +8,6 @@
  ***************************************************************************/
 package main
 
-import (
-	"fmt"
-)
-
 //给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。
 //
 //
@@ -131,10 +127,9 @@ func minWindow(s string, t string) string {
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
-
-func main() {
-	s := "ababb"
-	t := "abb"
-	fmt.Println(minWindow(s, t))
-	//fmt.Println(strings.Contains(s, t))
-}
+//func main() {
+//	s := "ababb"
+//	t := "abb"
+//	fmt.Println(minWindow(s, t))
+//	//fmt.Println(strings.Contains(s, t))
+//}

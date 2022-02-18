@@ -41,7 +41,30 @@ package main
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func subsets(nums []int) [][]int {
+	res := [][]int{}
+	if len(nums) == 0 {
+		return res
+	}
+	current := []int{}
+	start := 0
+	subsetsBT(nums, &res, current, start)
+	return res
+}
 
+func subsetsBT(nums []int, resPtr *[][]int, current []int, start int) {
+	tmp := make([]int, len(current))
+	copy(tmp, current)
+	*resPtr = append(*resPtr, tmp)
+	for i := start; i < len(nums); i++ {
+		current = append(current, nums[i])
+		subsetsBT(nums, resPtr, current, i+1)
+		current = current[:len(current)-1]
+	}
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
+
+//func main() {
+//	nums := []int{1, 2, 3}
+//	fmt.Println(subsets(nums))
+//}

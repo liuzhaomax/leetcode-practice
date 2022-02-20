@@ -8,10 +8,6 @@
  ***************************************************************************/
 package main
 
-import (
-	"fmt"
-)
-
 //给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是 回文串 。返回 s 所有可能的分割方案。
 //
 // 回文串 是正着读和反着读都一样的字符串。
@@ -85,7 +81,7 @@ func partitionCheck(s string, left int, right int) bool {
 
 //leetcode submit region end(Prohibit modification and deletion)
 
-func main() {
-	s := "aab"
-	fmt.Println(partition(s))
-}
+//func main() {
+//	s := "aab"
+//	fmt.Println(partition(s))
+//}
